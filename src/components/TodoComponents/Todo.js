@@ -1,11 +1,11 @@
 import React from "react";
 
+
+
 const Todo = props =>{
     return (
-        <div
-        onClick={props.onClick}
-        >
-            <p>{props.item.name}</p>
+        <div onClick={props.onClick}>
+            <p>{props.todo.task}</p>
         </div>
     )
 }

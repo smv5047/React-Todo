@@ -15,8 +15,10 @@ class TodoList extends React.Component {
   render() {
     return (
       <>
-        {this.props.todoArray.map(item => (
-          <Todo key={item.id} item={item} />
+        {console.log(this.props.todoArray)}
+        {this.props.todoArray.map(todo => (
+          <Todo key={todo.id} todo={todo} />
+          
         ))}
       </>
     );

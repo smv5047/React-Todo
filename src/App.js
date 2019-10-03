@@ -9,7 +9,7 @@ class App extends React.Component {
 
     this.state = {
       todo: []
-    }
+    };
   }
 
 
@@ -21,7 +21,7 @@ class App extends React.Component {
       id: Date.now(),
       task: todoName,
       completed: false
-    }
+    };
 
     this.setState({
       todo:[...this.state.todo, newTodo]
