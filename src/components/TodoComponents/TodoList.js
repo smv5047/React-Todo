@@ -5,19 +5,17 @@ import React from "react";
 import Todo from "./Todo";
 
 class TodoList extends React.Component {
-  constructor(props) {
-    super();
-    this.state = {
-      todo: props.todoArray
-    };
-  }
 
   render() {
     return (
       <>
-        {console.log(this.props.todoArray)}
-        {this.props.todoArray.map(todo => (
-          <Todo key={todo.id} todo={todo} />
+        {console.log(this.props.todo)}
+        {this.props.todo.map(todo => (
+          <Todo 
+            key={todo.id} 
+            todo={todo} 
+            onClick ={(event) => this.props.toggleTodo(event, todo.id)}
+            />
           
         ))}
       </>

@@ -28,6 +28,30 @@ class App extends React.Component {
       todo:[...this.state.todo, newTodo]
     })
   }
+
+  toggleTodo = (event, id) => {
+    event.preventDefault()
+    
+    this.setState({
+      // loop over each item in array and alter it
+      // if it matches the passed itemId
+      todo: this.state.todo.map((todo) => {
+        if (todo.id === id) {
+          return {
+            // merge existing item with new values below
+            ...todo,
+            // "toggle" the boolean value or set it to
+            // opposite what it currently is
+            completed: !todo.completed
+          }
+        } else {
+          return todo
+        }
+      })
+    })
+  }
+
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -36,8 +60,7 @@ class App extends React.Component {
       <div className="app">
           <h2>ToDo Today</h2>
           <TodoForm addTodo={this.addTodo} />
-          <TodoList todoArray={this.state.todo}/>
-
+          <TodoList todo={this.state.todo} toggleTodo={this.toggleTodo}/>
           {/* <button onClick={this.clearDone}>
             Done
           </button> */}
