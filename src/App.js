@@ -51,6 +51,18 @@ class App extends React.Component {
     })
   }
 
+  clearDone = () =>{
+    this.setState({
+      todo: this.state.todo.filter((todo)=>{
+        if(todo.completed === false) {
+          return todo
+        } else {
+          return null
+        }
+      })
+    })
+  }
+
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -61,9 +73,9 @@ class App extends React.Component {
           <h2>ToDo Today</h2>
           <TodoForm addTodo={this.addTodo} />
           <TodoList todo={this.state.todo} toggleTodo={this.toggleTodo}/>
-          {/* <button onClick={this.clearDone}>
-            Done
-          </button> */}
+          <button onClick={this.clearDone}>
+            Clear
+          </button>
       </div>
     );
   }
